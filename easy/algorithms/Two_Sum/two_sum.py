@@ -34,13 +34,10 @@ class Solution(object):
                 print("The number is not within the constraint of -109 <= nums[i] <= 109.")
                 continue
             
-            # Check if the target is within the constraint.
-            if target < -109 or target > 109:
-                print("The target is not within the constraint of -109 <= target <= 109.")
-                continue
-            
             # For loop to iterate through the list of numbers.
             for j, num2 in enumerate(nums):
+                if i == j:
+                    continue
                 # Check if the number is within the constraint.
                 if num < -109 or num > 109:
                     print("The number is not within the constraint of -109 <= nums[i] <= 109.")
@@ -48,10 +45,8 @@ class Solution(object):
                 
                 # Check if the sum of the two numbers is equal to the target.
                 if num + num2 == target:
-                    # Check if the indices are not the same.
-                    if i != j:
-                        answer = [i, j]
-                        break
+                    answer = [i, j]
+                    break
             # Check if the answer is not None.
             if answer is not None:
                 break
