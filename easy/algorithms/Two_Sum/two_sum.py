@@ -23,6 +23,10 @@ class Solution(object):
         if len(nums) < 2 or len(nums) > 104:
             raise ValueError("The length of nums is not within the constraint of 2 <= nums.length <= 103.")
         
+        # Check if the target is within the constraint.
+        if target < -109 or target > 109:
+            raise ValueError("The target is not within the constraint of -109 <= target <= 109.")
+        
         # For loop to iterate through the list of numbers.
         for i, num in enumerate(nums):
             # Check if the number is within the constraint.

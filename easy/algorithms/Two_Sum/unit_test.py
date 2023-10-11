@@ -24,7 +24,7 @@ class TestTwoSum(unittest.TestCase):
     def test_two_sum_nums_len_small_constraint(self):
         nums = [3]
         target = 6
-        val_err = "The length of nums is not within the constraint of 2 <= nums.length <= 103."
+        val_err = "The length of nums is not within the constraint of 2 <= nums.length <= 104."
         with self.assertRaises(ValueError) as context:
             self.sol.twoSum(nums, target)
             self.assertEqual(val_err, context.exception.args[0])
@@ -32,7 +32,7 @@ class TestTwoSum(unittest.TestCase):
     def test_two_sum_nums_len_large_constraint(self):
         nums = [0] * 105
         target = 6
-        val_err = "The length of nums is not within the constraint of 2 <= nums.length <= 103."
+        val_err = "The length of nums is not within the constraint of 2 <= nums.length <= 104."
         with self.assertRaises(ValueError) as context:
             self.sol.twoSum(nums, target)
             self.assertEqual(val_err, context.exception.args[0])
@@ -45,10 +45,14 @@ class TestTwoSum(unittest.TestCase):
     def test_two_sum_target_integer_large_constraint(self):
         nums = [3, 2, 4]
         target = 110
-        self.assertEqual(self.sol.twoSum(nums, target), None)
+        with self.assertRaises(ValueError) as context:
+            self.sol.twoSum(nums, target)
+            self.assertEqual("The target is not within the constraint of -109 <= target <= 109.", context.exception.args[0])
         
     def test_two_sum_target_integer_small_constraint(self):
         nums = [3, 2, 4]
         target = -110
-        self.assertEqual(self.sol.twoSum(nums, target), None)
+        with self.assertRaises(ValueError) as context:
+            self.sol.twoSum(nums, target)
+            self.assertEqual("The target is not within the constraint of -109 <= target <= 109.", context.exception.args[0])
         
