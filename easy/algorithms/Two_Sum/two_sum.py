@@ -34,15 +34,14 @@ class Solution(object):
             if num < -109 or num > 109:
                 print("The number is not within the constraint of -109 <= nums[i] <= 109.")
                 continue
-            # if length of hash table is 0, 
-            # then add to the hash table and 
-            # continue to next iteration. 
+
             if len(hash_table) == 0:
                 hash_table[num] = i
                 continue
 
+            # subtract the target from the num
             check = target - num
-
+            # if the check value is in the hash table return the indices
             if check in hash_table:
                 return [hash_table[check], i]
             else:
