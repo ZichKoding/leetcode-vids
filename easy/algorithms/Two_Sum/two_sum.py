@@ -8,9 +8,9 @@ class Solution(object):
             returns them in a list. Only one valid answer will be returned. 
             
             Constraints:
-                * 2 <= nums.length <= 104
-                * -109 <= nums[i] <= 109
-                * -109 <= target <= 109
+                * 2 <= nums.length <= 10**4
+                * -10**9 <= nums[i] <= 10**9
+                * -10**9 <= target <= 10**9
                 * Only one valid answer returns. 
             
             :type nums: List[int]
@@ -18,12 +18,12 @@ class Solution(object):
             :rtype: List[int]
         """        
         # Check the length of nums is within the constraint.
-        if len(nums) < 2 or len(nums) > 104:
-            raise ValueError("The length of nums is not within the constraint of 2 <= nums.length <= 103.")
+        if len(nums) < 2 or len(nums) > 10**4:
+            raise ValueError("The length of nums is not within the constraint of 2 <= nums.length <= 10**3.")
         
         # Check if the target is within the constraint.
-        if target < -109 or target > 109:
-            raise ValueError("The target is not within the constraint of -109 <= target <= 109.")
+        if target < -10**9 or target > 10**9:
+            raise ValueError("The target is not within the constraint of -10**9 <= target <= 10**9.")
         
         # Add a hash table dictionary
         hash_table = {}
@@ -31,8 +31,8 @@ class Solution(object):
         # For loop to iterate through the list of numbers.
         for i, num in enumerate(nums):
             # Check if the number is within the constraint.
-            if num < -109 or num > 109:
-                print("The number is not within the constraint of -109 <= nums[i] <= 109.")
+            if num < -10**9 or num > 10**9:
+                print("The number is not within the constraint of -10**9 <= nums[i] <= 10**9.")
                 continue
 
             if len(hash_table) == 0:

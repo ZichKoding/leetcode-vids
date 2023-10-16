@@ -25,27 +25,27 @@ class TestTwoSum(unittest.TestCase):
             "two_sum_nums_len_small_constraint": {
                 "nums": [3],
                 "target": 6,
-                "answer": "The length of nums is not within the constraint of 2 <= nums.length <= 104."
+                "answer": "The length of nums is not within the constraint of 2 <= nums.length <= 10**4."
             },
             "two_sum_nums_len_large_constraint": {
-                "nums": [0] * 105,
+                "nums": [0] * 10**5,
                 "target": 6,
-                "answer": "The length of nums is not within the constraint of 2 <= nums.length <= 104."
+                "answer": "The length of nums is not within the constraint of 2 <= nums.length <= 10**4."
             },
             "two_sum_nums_integer_size_constraint": {
-                "nums": [-110, 0, 110],
+                "nums": [-10**10, 0, 10**10],
                 "target": 6,
                 "answer": None
             },
             "two_sum_target_integer_large_constraint": {
                 "nums": [3, 2, 4],
-                "target": 110,
-                "answer": "The target is not within the constraint of -109 <= target <= 109."
+                "target": 10**10,
+                "answer": "The target is not within the constraint of -10**9 <= target <= 10**9."
             },
             "two_sum_target_integer_small_constraint": {
                 "nums": [3, 2, 4],
-                "target": -110,
-                "answer": "The target is not within the constraint of -109 <= target <= 109."
+                "target": -10**10,
+                "answer": "The target is not within the constraint of -10**9 <= target <= 10**9."
             }
         }
         
