@@ -16,9 +16,7 @@ class Solution(object):
             :type nums: List[int]
             :type target: int
             :rtype: List[int]
-        """
-        answer = None
-        
+        """        
         # Check the length of nums is within the constraint.
         if len(nums) < 2 or len(nums) > 104:
             raise ValueError("The length of nums is not within the constraint of 2 <= nums.length <= 103.")
@@ -27,28 +25,27 @@ class Solution(object):
         if target < -109 or target > 109:
             raise ValueError("The target is not within the constraint of -109 <= target <= 109.")
         
+        # Add a hash table dictionary
+        hash_table = {}
+
         # For loop to iterate through the list of numbers.
         for i, num in enumerate(nums):
             # Check if the number is within the constraint.
             if num < -109 or num > 109:
                 print("The number is not within the constraint of -109 <= nums[i] <= 109.")
                 continue
-            
-            # For loop to iterate through the list of numbers.
-            for j, num2 in enumerate(nums):
-                if i == j:
-                    continue
-                # Check if the number is within the constraint.
-                if num < -109 or num > 109:
-                    print("The number is not within the constraint of -109 <= nums[i] <= 109.")
-                    continue
-                
-                # Check if the sum of the two numbers is equal to the target.
-                if num + num2 == target:
-                    answer = [i, j]
-                    break
-            # Check if the answer is not None.
-            if answer is not None:
-                break
+            # if length of hash table is 0, 
+            # then add to the hash table and 
+            # continue to next iteration. 
+            if len(hash_table) == 0:
+                hash_table[num] = i
+                continue
+
+            check = target - num
+
+            if check in hash_table:
+                return [hash_table[check], i]
+            else:
+                hash_table[num] = i
         
-        return answer
+        return None
